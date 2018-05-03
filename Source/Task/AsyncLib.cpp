@@ -2,9 +2,9 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 #include "pch.h"
-#include "Async.h"
-#include "AsyncProvider.h"
-#include "AsyncQueue.h"
+#include <httpClient/async.h>
+#include <httpClient/asyncProvider.h>
+#include <httpClient/asyncQueue.h>
 
 #define ASYNC_STATE_SIG 0x41535445
 
@@ -221,7 +221,7 @@ static void CALLBACK WorkerCallback(_In_ void* context);
 static void CALLBACK TimerCallback(_In_ PTP_CALLBACK_INSTANCE, _In_ void* context, _In_ PTP_TIMER);
 #endif
 static void SignalCompletion(_In_ AsyncBlock* asyncBlock, _In_ AsyncStateRef const& state);
-static HRESULT AllocStateNoCompletion(_In_ AsyncBlock* asyncBlock, _In_ AsyncBlockInternal& internal);
+static HRESULT AllocStateNoCompletion(_In_ AsyncBlock* asyncBlock, _In_ AsyncBlockInternal* internal);
 static HRESULT AllocState(_In_ AsyncBlock* asyncBlock);
 static void CleanupState(_In_ AsyncStateRef&& state);
 
